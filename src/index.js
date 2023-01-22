@@ -14,10 +14,8 @@ class EthWallets {
 
         this.infuraId = config.infuraId;
 
-        let networks = require('../resources/mainnets.json');
-        if (config.testnets) {
-            networks = require('../resources/testnets.json');
-        }
+        let networks = require('eth-based-networks');
+        networks = config.testnet ? networks.testnets : networks.mainnets;
 
         if (typeof config.network == 'object') {
             this.selectedNetwork = config.network;
