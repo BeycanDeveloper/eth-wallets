@@ -1,0 +1,64 @@
+{
+  "namespace": "beycandeveloper",
+  "name": "@beycandeveloper/eth-wallets",
+  "version": "0.1.0",
+  "description": "A library that makes it easy to connect to Ethereum and EVM-based wallets and make transactions quickly.",
+  "scripts": {
+    "serve": "parcel test.html --no-cache --dist-dir test",
+    "build": "webpack",
+    "push":"webpack && npm publish"
+  },
+  "files": [
+    "dist",
+    "resources"
+  ],
+  "main": "dist/index.js",
+  "types": "index.d.ts",
+  "typings": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeycanDeveloper/eth-wallets.git"
+  },
+  "keywords": [
+    "Blockchain",
+    "Ethereum wallets",
+    "Cryptocurrency"
+  ],
+  "author": "Halil Beycan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BeycanDeveloper/eth-wallets/issues"
+  },
+  "homepage": "https://github.com/BeycanDeveloper/eth-wallets",
+  "dependencies": {
+    "@walletconnect/web3-provider": "^1.7.8",
+    "abi-decoder": "^2.4.0",
+    "bignumber.js": "^9.0.2",
+    "os": "^0.1.2",
+    "web3": "^0.20.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/polyfill": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.1.0",
+    "@babel/register": "^7.11.5",
+    "assert": "^2.0.0",
+    "buffer": "^5.7.1",
+    "crypto-browserify": "^3.12.0",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "parcel": "^2.8.2",
+    "punycode": "^1.4.1",
+    "querystring-es3": "^0.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.0",
+    "util": "^0.12.5",
+    "webpack": "^5.64.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0"
+  }
+}

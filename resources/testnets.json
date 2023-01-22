@@ -1,0 +1,47 @@
+{
+    "ethereum": {
+        "id": 5,
+        "hexId": "0x5",
+        "name": "Ethereum Goerli",
+        "rpcUrl": "https://goerli.infura.io/v3/",
+        "explorerUrl": "https://goerli.etherscan.io/",
+        "nativeCurrency": {
+            "symbol" : "ETH",
+            "decimals" : 18
+        }
+    },
+    "bsc": {
+        "id": 97,
+        "hexId": "0x61",
+        "name": "Binance Smart Chain Testnet",
+        "rpcUrl": "https://data-seed-prebsc-1-s1.binance.org:8545/",
+        "explorerUrl": "https://testnet.bscscan.com/",
+        "nativeCurrency": {
+            "symbol" : "BNB",
+            "decimals" : 18
+        }
+    },
+    "avalanche": {
+        "id": 43113,
+        "hexId": "0xa869",
+        "name": "Avalanche FUJI C-Chain Testnet",
+        "rpcUrl": "https://api.avax-test.network/ext/bc/C/rpc",
+        "wsUrl": "wss://api.avax-test.network/ext/bc/C/ws",
+        "explorerUrl": "https://cchain.explorer.avax-test.network",
+        "nativeCurrency": {
+            "symbol" : "AVAX",
+            "decimals" : 18
+        }
+    },
+    "polygon": {
+        "id": 80001,
+        "hexId": "0x13881",
+        "name": "Polygon Mumbai Testnet",
+        "rpcUrl": "https://rpc-mumbai.maticvigil.com/",
+        "explorerUrl": "https://mumbai.polygonscan.com/",
+        "nativeCurrency": {
+            "symbol" : "MATIC",
+            "decimals" : 18
+        }
+    }
+}
