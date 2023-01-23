@@ -102,7 +102,6 @@ class Wallet {
             this.adapter.connect()
             .then(async connectedAccount => {
                 let chainHexId = await this.getChainHexId();
-                console.log(selectedNetwork.hexId, chainHexId)
                 if (selectedNetwork.hexId == chainHexId) {
                     this.web3 = new Web3(this.provider);
                     this.connectedAccount = connectedAccount;

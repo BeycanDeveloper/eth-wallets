@@ -65,12 +65,10 @@ export function isAddress(address) {
 export function rejectMessage(error, reject) {
     if (error.message == 'Not supported chainId') {
         return reject('not-accepted-chain')
+    } else if (String(error.message).indexOf('chain ID') > -1) {
+        return reject("not-accepted-chain");
     } else if (error.code == -32603) {
-        if (String(error.message).indexOf('chain ID') > -1) {
-            return reject("not-accepted-chain");
-        } else {
-            return reject('transaction-create-fail');
-        }
+        return reject('transaction-create-fail');
     } else if (error.code == -32601) {
         return reject('non-supported-method');
     } else if (
@@ -97,7 +95,7 @@ export function rejectMessage(error, reject) {
         String(error.message).indexOf('rejected') > -1 
     ) {
         return reject('request-rejected');
-    }else if (error.message == 'transaction underpriced') { 
+    } else if (error.message == 'transaction underpriced') { 
         return reject('transaction-underpriced');
     }
 

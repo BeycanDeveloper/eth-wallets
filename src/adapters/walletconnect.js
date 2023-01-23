@@ -2,6 +2,21 @@ module.exports = createAdapter = () => {
     const {infuraId, selectedNetwork} = require('../index.js');
     const WalletConnectProvider = require('@walletconnect/web3-provider').default;
 
+    // function isLocalHost() {
+    //     return location.hostname === "localhost" || location.hostname === "127.0.0.1";
+    // }
+
+    // function checkNetwork(network) {
+    //     if (isLocalHost() && network.hexId == "0x61") {
+    //         return false;
+    //     }
+    //     return true;
+    // }
+    // Object.values(networks).forEach((network) => {
+    //     if (!checkNetwork(network)) return;
+    //     rpcIdMapping[network.id] = network.rpcUrl;
+    // });
+
     const rpcIdMapping = {};
     rpcIdMapping[selectedNetwork.id] = selectedNetwork.rpcUrl;
 
@@ -19,6 +34,10 @@ module.exports = createAdapter = () => {
             ],
             desktopLinks: []
         }
+    });
+    
+    provider.on('disconnect', () => {
+        localStorage.removeItem('walletconnect');
     });
 
     const connect = async () => {

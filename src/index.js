@@ -1,5 +1,7 @@
 class EthWallets {
 
+    static networks;
+
     static infuraId = null;
 
     static detectedWallets = {};
@@ -15,17 +17,19 @@ class EthWallets {
         this.infuraId = config.infuraId;
 
         let networks = require('eth-based-networks');
-        networks = config.testnet ? networks.testnets : networks.mainnets;
+        this.networks = config.testnet ? networks.testnets : networks.mainnets;
 
         if (typeof config.network == 'object') {
             this.selectedNetwork = config.network;
-        } else if (networks[config.network]) {
-            this.selectedNetwork = networks[config.network];
+        } else if (this.networks[config.network]) {
+            this.selectedNetwork = this.networks[config.network];
         } else {
             throw new Error('Network not found!');
         }
         
         this.detectWallets();
+
+        return this;
     }
 
     static connectWallet = (adapter) => {

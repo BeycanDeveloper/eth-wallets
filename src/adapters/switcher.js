@@ -39,7 +39,10 @@ module.exports = switcher = (provider) => {
                 resolve(true);
             })
             .catch((error) => {
-                if (error.code === 4902) {
+                if (
+                    error.code === 4902 ||
+                    String(error.message).indexOf('wallet_addEthereumChain') > -1    
+                ) {
                     this.addNetwork(network)
                     .then(() => {
                         resolve(true);
@@ -62,16 +65,20 @@ module.exports = switcher = (provider) => {
 
     this.maybeSwitch = () => {
         return new Promise(async (resolve, reject) => {
-            if (await this.getChainHexId() != selectedNetwork.hexId) {
-                this.changeNetwork(selectedNetwork)
-                .then(() => {
+            try {
+                if (await this.getChainHexId() != selectedNetwork.hexId) {
+                    this.changeNetwork(selectedNetwork)
+                    .then(() => {
+                        resolve(true);
+                    })
+                    .catch((error) => {
+                        reject(error);
+                    });
+                } else {
                     resolve(true);
-                })
-                .catch((error) => {
-                    reject(error);
-                });
-            } else {
-                resolve(true);
+                }
+            } catch (error) {
+                reject(error);
             }
         });
     }
