@@ -67,6 +67,8 @@ export function rejectMessage(error, reject) {
         return reject('not-accepted-chain')
     } else if (String(error.message).indexOf('chain ID') > -1) {
         return reject("not-accepted-chain");
+    } else if (String(error.message).indexOf('Invalid RPC URL') > -1) {
+        return reject("invalid-rpc-error");
     } else if (error.code == -32603) {
         return reject('transaction-create-fail');
     } else if (error.code == -32601) {
